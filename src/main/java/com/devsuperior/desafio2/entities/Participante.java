@@ -16,18 +16,21 @@ public class Participante {
     private String name;
     private String email;
 
-    @OneToMany(mappedBy = "participante")
-    private Set<Atividade> atividades = new HashSet<>();
+    @ManyToMany
+    @JoinTable(name = "tb_participante_atividade",
+            joinColumns = @JoinColumn(name = "participante_id"),
+            inverseJoinColumns = @JoinColumn(name = "atividade_id"))
+    private Set<Atividade> att = new HashSet<>();
 
     public Participante() {
 
     }
 
-    public Participante(int id, String name, String email, Set<Atividade> atividades) {
+    public Participante(int id, String name, String email, Set<Atividade> att) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.atividades = atividades;
+        this.att = att;
     }
 
     public int getId() {
@@ -54,11 +57,11 @@ public class Participante {
         this.email = email;
     }
 
-    public Set<Atividade> getAtividades() {
-        return atividades;
+    public Set<Atividade> getAtt() {
+        return att;
     }
 
-    public void setAtividades(Set<Atividade> atividades) {
-        this.atividades = atividades;
+    public void setAtt(Set<Atividade> att) {
+        this.att = att;
     }
 }

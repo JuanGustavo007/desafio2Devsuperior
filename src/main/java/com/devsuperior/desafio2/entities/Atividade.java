@@ -24,9 +24,8 @@ public class Atividade {
     private Categoria categoria;
 
 
-    @ManyToOne
-    @JoinColumn(name = "participante_id")
-    private Participante participante;
+    @ManyToMany(mappedBy = "att")
+    private Set<Participante> atividades = new HashSet<>();
 
 
     @OneToMany(mappedBy = "blocoatt")
@@ -36,13 +35,13 @@ public class Atividade {
 
     }
 
-    public Atividade(int id, String name, String description, Double valor, Categoria categoria, Participante participante, List<Bloco> blocos) {
+    public Atividade(int id, String name, String description, Double valor, Categoria categoria, Set<Participante> atividades, List<Bloco> blocos) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.valor = valor;
         this.categoria = categoria;
-        this.participante = participante;
+        this.atividades = atividades;
         this.blocos = blocos;
     }
 
@@ -86,12 +85,12 @@ public class Atividade {
         this.categoria = categoria;
     }
 
-    public Participante getParticipante() {
-        return participante;
+    public Set<Participante> getAtividades() {
+        return atividades;
     }
 
-    public void setParticipante(Participante participante) {
-        this.participante = participante;
+    public void setAtividades(Set<Participante> atividades) {
+        this.atividades = atividades;
     }
 
     public List<Bloco> getBlocos() {

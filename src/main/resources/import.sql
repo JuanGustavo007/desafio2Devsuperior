@@ -16,3 +16,11 @@ INSERT INTO tb_bloco ( comeco, fim, bloco_id) VALUES (TIMESTAMP WITH TIME ZONE '
 INSERT INTO tb_bloco ( comeco, fim , bloco_id) VALUES (TIMESTAMP WITH TIME ZONE '2017-09-25T14:00:00Z', TIMESTAMP WITH TIME ZONE '2017-09-25T18:00:00Z',2);
 INSERT INTO tb_bloco ( comeco, fim , bloco_id) VALUES (TIMESTAMP WITH TIME ZONE '2017-09-26T08:00:00Z', TIMESTAMP WITH TIME ZONE '2017-09-25T11:00:00Z', 2);
 
+
+insert into tb_participante_atividade (atividade_id, participante_id) values (1, 1);
+insert into tb_participante_atividade (atividade_id, participante_id) values (1, 2);
+insert into tb_participante_atividade (atividade_id, participante_id) values (1, 3);
+
+insert into tb_participante_atividade (atividade_id, participante_id) values (2, 3);
+insert into tb_participante_atividade (atividade_id, participante_id) values (2, 4);
+
